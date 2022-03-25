@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('clone-repo') {
             steps {
-                git 'https://github.com/nageshvkn/gamutkart2.git'
+                git 'https://github.com/nageshvkn/iflipkart.git'
             }
         }
         stage('build') {
@@ -19,7 +19,7 @@ pipeline {
         }  
          stage('deployment') {
             steps {
-                sh 'sshpass -p "ram" scp target/gamutgurus.war ram@172.17.0.4:/home/ram/apache-tomcat-9.0.60/webapps'
+                sh 'sshpass -p "ram" scp target/flipkart.war ram@172.17.0.4:/home/ram/apache-tomcat-9.0.60/webapps'
                 sh 'sshpass -p "ram" ssh ram@172.17.0.4 /home/ram/apache-tomcat-9.0.60/bin/startup.sh'
             }
         }
